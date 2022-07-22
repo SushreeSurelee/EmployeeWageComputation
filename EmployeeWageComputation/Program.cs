@@ -12,14 +12,16 @@ namespace EmployeeWageComputation
         public const int IS_FULL_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
+        public const int MAX_HOURS_IN_MONTH = 100;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
 
-            int empHrs = 0, empWage = 0, totalEmpWage = 0;
+            int empHrs, totalEmpWage , totalWorkingDays = 0, totalEmpHrs = 0;
             Random random = new Random();
-            for (int day = 1; day <= NUM_OF_WORKING_DAYS; day++)
+            while (totalWorkingDays < NUM_OF_WORKING_DAYS && totalEmpHrs <= MAX_HOURS_IN_MONTH)
             {
+                totalWorkingDays++;
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
@@ -33,10 +35,10 @@ namespace EmployeeWageComputation
                         empHrs = 0;
                         break;
                 }
-                empWage = empHrs * EMP_RATE_PER_HOUR;
-                totalEmpWage += empWage;
-                Console.WriteLine("Daily Emp Wage = " + empWage);
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Day number = " + totalWorkingDays + " Working hours = " + totalEmpHrs);
             }
+            totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Monthly employee wage = " + totalEmpWage);
             Console.ReadLine();   
         }
