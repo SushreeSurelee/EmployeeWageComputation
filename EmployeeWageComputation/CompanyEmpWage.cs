@@ -24,7 +24,6 @@ namespace EmployeeWageComputation
         {
             this.totalEmpWage = totalEmpWage;
         }
-
         public string toString()
         {
             return ("Total wage for " + this.company + " is " + this.totalEmpWage);

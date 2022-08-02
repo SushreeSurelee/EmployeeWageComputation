@@ -11,12 +11,10 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program\n");
-
             EmpWageObjectsArray empWageObjects = new EmpWageObjectsArray();
             empWageObjects.AddCompanyEmpWage("TCS", 25, 18, 80);
             empWageObjects.AddCompanyEmpWage("Wipro", 20, 25, 90);
             empWageObjects.CalculateEmpWage();
-
             Console.ReadLine();
         }
     }

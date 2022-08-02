@@ -53,12 +53,9 @@ namespace EmployeeWageComputation
                         break;
                 }
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Day number = " + totalWorkingDays + " Working hours = " + empHrs);
+                //Console.WriteLine("Day number = " + totalWorkingDays + " Working hours = " + empHrs);
             }
             return totalEmpHrs * companyEmpWage.empRatePerHr;
         }
-
-        
-    
-}
+    }
 }
