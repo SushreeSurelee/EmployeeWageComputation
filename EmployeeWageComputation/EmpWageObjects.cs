@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
-    public class EmpWageObjectsArray
+    public class EmpWageObjects
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
 
         private LinkedList<CompanyEmpWage> companyEmpWageList;
+        private Dictionary<string, CompanyEmpWage> companyToEmpWagemap;
 
-        public EmpWageObjectsArray()
+        public EmpWageObjects()
         {
             this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
         }
@@ -55,6 +56,11 @@ namespace EmployeeWageComputation
                 Console.WriteLine("Day number = " + totalWorkingDays + " Working hours = " + empHrs);
             }
             return totalEmpHrs * companyEmpWage.empRatePerHr;
+        }
+
+        public int GetTotalWage(string company)
+        {
+            return this.companyToEmpWagemap[company].totalEmpWage;
         }
         
     }

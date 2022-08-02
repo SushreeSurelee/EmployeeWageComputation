@@ -26,7 +26,7 @@ namespace EmployeeWageComputation
         }
         public string toString()
         {
-            return ("\nTotal wage for " + this.company + " is " + this.totalEmpWage+"\n");
+            return ("\nTotal wage for " + this.company + " company is " + this.totalEmpWage+"\n");
         }
     }
 }
