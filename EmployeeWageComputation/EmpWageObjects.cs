@@ -11,25 +11,24 @@ namespace EmployeeWageComputation
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
 
-        private int numOfCompany = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
+        private LinkedList<CompanyEmpWage> companyEmpWageList;
 
         public EmpWageObjectsArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[5];
+            this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
         }
         public void AddCompanyEmpWage(string company, int numOfWorkingDays, int empRatePerHr, int maxHoursPerMont)
         {
-            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, numOfWorkingDays, empRatePerHr, maxHoursPerMont);
-            numOfCompany++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, numOfWorkingDays, empRatePerHr, maxHoursPerMont);
+            this.companyEmpWageList.AddLast(companyEmpWage);
         }
 
         public void CalculateEmpWage()
         {
-            for (int i=0;i<numOfCompany;i++)
+            foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
             {
-                companyEmpWageArray[i].setTotalEmpWage(this.CalculateEmpWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].toString());
+                companyEmpWage.setTotalEmpWage(this.CalculateEmpWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.toString());
             }
         }
         private int CalculateEmpWage(CompanyEmpWage companyEmpWage)
@@ -53,9 +52,10 @@ namespace EmployeeWageComputation
                         break;
                 }
                 totalEmpHrs += empHrs;
-                //Console.WriteLine("Day number = " + totalWorkingDays + " Working hours = " + empHrs);
+                Console.WriteLine("Day number = " + totalWorkingDays + " Working hours = " + empHrs);
             }
             return totalEmpHrs * companyEmpWage.empRatePerHr;
         }
+        
     }
 }
