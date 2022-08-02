@@ -17,11 +17,13 @@ namespace EmployeeWageComputation
         public EmpWageObjects()
         {
             this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
+            this.companyToEmpWagemap = new Dictionary<string, CompanyEmpWage>();
         }
         public void AddCompanyEmpWage(string company, int numOfWorkingDays, int empRatePerHr, int maxHoursPerMont)
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, numOfWorkingDays, empRatePerHr, maxHoursPerMont);
             this.companyEmpWageList.AddLast(companyEmpWage);
+            this.companyToEmpWagemap.Add(company, companyEmpWage);
         }
 
         public void CalculateEmpWage()
